@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+</head>
+<style>
+  .main-signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .signup-form{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  button{
+    font-size: 16px;
+    padding: 10px;
+  }
+  p a {
+    text-decoration: none;
+  }
+</style>
+
+<body>
+  <div class="main-signup">
+    <h1>회원가입</h1>
+    <% if(error) { %>
+      <p class="error"><%= error %></p>
+      <% } %>
+      <form action="/signup" method="POST">
+        <div class = "signup-form">
+          <div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label for="username">사용자 명: </label>
+            <input type="text" id="username" name="username" required minlength="3">
+          </div>
+          <br>
+          <div>
+            <label for="email">이메일: </label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <br>
+          <div>
+            <label for="password">비밀번호: </label>
+            <input type="password" id="password" name="password" required minlength="6">
+          </div>
+          <br>
+          <div>
+            <label for="confirmPassword">비밀번호 확인: </label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6">
+          </div>
+          <br>
+          <button type="submit">가입하기</button>
+        </div>
+        
+      </form>  
+      <p>이미 회원이신가요?<a href="/login">로그인</a></p>
+  </div>
+
+</body>
+</html>
