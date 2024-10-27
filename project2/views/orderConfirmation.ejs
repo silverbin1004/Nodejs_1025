@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>주문 완료</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>주문이 완료되었습니다!</h1>
+  <p>주문 번호: <%= order._id %></p>
+  <h2>주문 상세 정보</h2>
+  <ul>
+    <% order.products.forEach(item => { %>
+      <li>
+        <strong>제품:</strong> <%= item.product.name %> <br>
+        <strong>수량:</strong> <%= item.quantity %> <br>
+        <strong>가격:</strong> $<%= item.product.price %> <br>
+      </li>
+    <% }) %>
+  </ul>
+  <h3>배송 정보</h3>
+  <p>주소: <%= order.shippingInfo.address %></p>
+  <p>도시: <%= order.shippingInfo.city %></p>
+  <p>우편번호: <%= order.shippingInfo.postalCode %></p>
+  <p>국가: <%= order.shippingInfo.country %></p>
+  <p>주문 상태: <%= order.orderStatus %></p>
+  <br>
+  <a href="/products">제품 목록으로 돌아가기</a>
+  <br>
+  <a href="/logout">로그아웃</a>
+</body>
+</html>

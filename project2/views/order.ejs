@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title><%= product.name %> 주문하기</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1><%= product.name %> 주문하기</h1>
+  <p>가격: $<%= product.price %></p>
+  <p>재고: <%= product.stock %></p>
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+  <form action="/order/<%= product._id %>" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label for="quantity">수량:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="<%= product.stock %>" value="1" required>
+    <br>
+    <h3>배송 정보</h3>
+    <label for="address">주소:</label>
+    <input type="text" id="address" name="address" required>
+    <br>
+    <label for="city">도시:</label>
+    <input type="text" id="city" name="city" required>
+    <br>
+    <label for="postalCode">우편번호:</label>
+    <input type="text" id="postalCode" name="postalCode" required>
+    <br>
+    <label for="country">국가:</label>
+    <input type="text" id="country" name="country" required>
+    <br>
+    <button type="submit">주문 완료</button>
+  </form>
+  <br>
+  <a href="/products/<%= product._id %>">제품 상세 페이지로 돌아가기</a>
+  <br>
+  <a href="/products">제품 목록으로 돌아가기</a>
+  <br>
+  <a href="/logout">로그아웃</a>
+</body>
+</html>

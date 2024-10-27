@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 50px;
+  background-color: rgb(91, 71, 71);
+  color: white;
+}
+.login-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  width: 370px;
+}
+
+.error {
+  color: red;
+}
+
+.createAccount{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.createAccount p {
+  font-size: 17px;
+  font-weight: 600;
+}
+.createAccount a{
+  text-decoration: none;
+  background-color: whitesmoke;
+  padding: 10px;
+}

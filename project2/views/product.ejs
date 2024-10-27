@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= product.name %>상세 정보</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1><%= product.name %></h1>
+  <p>가격: $<%= product.price %></p>
+  <p>재고: <%= product.stock %> 개</p>
+  <p>설명 <%= product.description %></p>
+  <a href="/order/<%= product._id %>">주문하기</a>
+  <br>
+  <a href="/products">목록으로 돌아가기</a>
+  <br>
+  <a href="/logout">로그아웃</a>
+  
+</body>
+</html>
